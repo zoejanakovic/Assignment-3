@@ -55,7 +55,7 @@ public class A3Q4 {
                 karel.turnRight();
             }
         }
-        //get karel to check for the break moving around the enclosure
+        //get karel to check for the break as he moves around the enclosure
         while (karel.frontIsClear() == false) {
             karel.turnLeft();
             if (karel.frontIsClear() == true) {
@@ -66,7 +66,7 @@ public class A3Q4 {
             }
             karel.turnRight();
         }
-        //move out of the enclosure
+        //move out of the enclosure through the break
         karel.move();
 
 

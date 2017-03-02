@@ -22,9 +22,11 @@ public class A3Q2 {
         // TODO code application logic here
         //create city
         City kw = new City();
+        
         //create robot
         Robot karel = new Robot(kw, 0, 2, Direction.WEST);
-        //createing walls
+        
+        //creating walls
         new Wall(kw, 1, 1, Direction.NORTH);
         new Wall(kw, 1, 1, Direction.WEST);
         new Wall(kw, 1, 2, Direction.NORTH);
@@ -33,12 +35,12 @@ public class A3Q2 {
         new Wall(kw, 2, 1, Direction.SOUTH);
         new Wall(kw, 2, 2, Direction.SOUTH);
         new Wall(kw, 2, 2, Direction.EAST);
-        
-        //counter
+
+        //making a counter
         int counter = 0;
-        
-        //move twice, turn left, and move with condition
-        while(counter < 8){
+
+        //loop karel to move twice, turn left, then move while the counter is<8
+        while (counter < 8) {
             karel.move();
             karel.move();
             karel.turnLeft();

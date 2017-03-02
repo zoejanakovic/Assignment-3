@@ -23,13 +23,17 @@ public class A3Q1 {
         // TODO code application logic here
         //create city
         City kw = new City();
+
         //create a robot
+
         Robot karel = new Robot(kw, 1, 1, Direction.EAST);
-        //creating things and wall
+
+        //creating things and walls
         new Thing(kw, 1, 4);
         new Thing(kw, 1, 5);
         new Wall(kw, 1, 6, Direction.WEST);
         new Wall(kw, 1, 4, Direction.WEST);
+
         //karel moves until he comes across the first thing or wall
         while (true) {
             karel.move();

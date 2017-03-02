@@ -42,33 +42,41 @@ public class A3Q6 {
         new Thing(kw, 4, 1);
         new Thing(kw, 4, 1);
 
-
+        //get karel onto the first pile of things
         karel.move();
+
         //make counter
         int counter = 0;
-        //get karel pick things to make graph
-        for(int i = 0; i < 4; i = i + 1){
-        while (karel.canPickThing() == true) {
-            karel.pickAllThings();
-            karel.putThing();
+
+        //loop while i < 4 so karel reats for the whole graph
+        for (int i = 0; i < 4; i = i + 1) {
+
+            //get karel pick things to make graph
+            while (karel.canPickThing() == true) {
+                karel.pickAllThings();
+                karel.putThing();
+                karel.turnLeft();
+                karel.move();
+                counter++;
+            }
+
+            //get karel to put things and move across and make graph
+            while (karel.countThingsInBackpack() > 0) {
+                karel.putThing();
+                karel.move();
+                counter++;
+            }
+
+            //get karel to go to return to the start of the row he made
+            karel.turnAround();
+            while (counter > 0) {
+                karel.move();
+                counter = counter - 1;
+            }
+
+            //get karel to go to the next row
             karel.turnLeft();
             karel.move();
-            counter++;
         }
-        //get karel to move across and make graph
-        while (karel.countThingsInBackpack() > 0) {
-            karel.putThing();
-            karel.move();
-            counter++;
-        }
-        //gaet karel to go to the next row
-        karel.turnAround();
-        while (counter > 0) {
-            karel.move();
-            counter = counter - 1;
-        }
-        karel.turnLeft();
-        karel.move();
-        }
-}
+    }
 }

@@ -24,9 +24,11 @@ public class A3Q3 {
         // TODO code application logic here
         //create city
         City kw = new City();
+
         //create robot
         RobotSE karel = new RobotSE(kw, 1, 1, Direction.EAST);
-        //create inclosure
+
+        //create enclosure
         new Wall(kw, 1, 1, Direction.WEST);
         new Wall(kw, 1, 1, Direction.NORTH);
         new Wall(kw, 1, 2, Direction.NORTH);
@@ -53,17 +55,21 @@ public class A3Q3 {
 
         //loop
         while (true) {
+
             //get karel to move and pick up things
             if (karel.frontIsClear() == true) {
                 karel.move();
                 if (karel.canPickThing() == true) {
                     karel.pickThing();
                 }
-            //hits an east facing wall, snakes to the next street
+
+                //hits an east facing wall, snakes to the next street
             } else if (karel.frontIsClear() == false && karel.getDirection() == Direction.EAST) {
                 karel.turnRight();
+                //if he can keep cleaning, continue
                 if (karel.frontIsClear() == true) {
                     karel.move();
+                    //if he is finished, break
                 } else if (karel.frontIsClear() == false) {
                     break;
                 }
@@ -71,11 +77,14 @@ public class A3Q3 {
                     karel.pickThing();
                 }
                 karel.turnRight();
-            //hits a west facing wall, goes to next street
+
+                //hits a west facing wall, goes to next street
             } else if (karel.frontIsClear() == false && karel.getDirection() == Direction.WEST) {
                 karel.turnLeft();
+                //if he can keep cleaning, continue
                 if (karel.frontIsClear() == true) {
                     karel.move();
+                    //if he is finished, break
                 } else if (karel.frontIsClear() == false) {
                     break;
                 }
@@ -83,10 +92,9 @@ public class A3Q3 {
                     karel.pickThing();
                 }
                 karel.turnLeft();
-
-
             }
         }
+        
         //get karel back to 1, 1
         karel.turnAround();
         while (karel.getStreet() > 1) {

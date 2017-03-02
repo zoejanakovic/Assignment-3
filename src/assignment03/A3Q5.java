@@ -22,10 +22,10 @@ public class A3Q5 {
         // TODO code application logic here
         //create city
         City kw = new City();
-        
+
         //create Robot
         RobotSE karel = new RobotSE(kw, 1, 1, Direction.EAST);
-        
+
         //create 10 things
         new Thing(kw, 1, 1);
         new Thing(kw, 1, 1);
@@ -37,12 +37,12 @@ public class A3Q5 {
         new Thing(kw, 1, 1);
         new Thing(kw, 1, 1);
         new Thing(kw, 1, 1);
-        
-        //craete counter
+
+        //create a counter
         int counter = 0;
-        
-        //loop
-        while(counter < 10){
+
+        //get karel to pick things and move them until the counter reaches 10
+        while (counter < 10) {
             karel.pickThing();
             karel.move();
             karel.putThing();
@@ -51,6 +51,8 @@ public class A3Q5 {
             karel.turnAround();
             counter++;
         }
+        
+        //get karel to move onto the space with his new pile
         karel.move();
     }
 }
